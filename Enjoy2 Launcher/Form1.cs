@@ -16,5 +16,14 @@ namespace Enjoy2_Launcher
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Читаем файл test.txt
+            System.IO.FileStream stream1 = System.IO.File.OpenRead("crashhandler.dll");
+            label1.Text = Convert.ToString(CRCTools.CalculateCRC(stream1));
+            //Console.WriteLine(string.Format("{0:X}", CalculateCRC(stream1)));
+            //Console.ReadLine();
+        }
     }
 }
