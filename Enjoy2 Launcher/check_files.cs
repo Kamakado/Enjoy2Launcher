@@ -5,8 +5,15 @@ using System.Text;
 
 namespace Enjoy2_Launcher
 {
+    //Класс для расчёта контрольной суммы
     class CRCTools
     {
+        public struct File_Info_t
+        {
+            public string filepath;
+            public string filename;
+            public uint crc32;
+        };
         /*
         static void Main(string[] args)
         {
