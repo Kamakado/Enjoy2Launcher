@@ -17,6 +17,7 @@ namespace Enjoy2_Patcher
     {
         WebClient webClient;    // Our WebClient that will be doing the downloading for us
         Stopwatch sw = new Stopwatch();    // The stopwatch which we will be using to calculate the download speed
+        bool downloaded; //флаг загрузки 
         public Form1()
         {
             InitializeComponent();
@@ -135,9 +136,13 @@ namespace Enjoy2_Patcher
 
                     }
                     label1.Text = file_cloud[i].filename;
+                    downloaded = false;
                     downloadFile((@"http://www.kamakado.ru/patcher/" + file_cloud[i].filename.Replace(@"\", @"/")), AppDomain.CurrentDomain.BaseDirectory + file_cloud[i].filename);
+                    while(!downloaded)
+                    {
+
+                    }
                 }
-                progressBar1.Value = i;
             }
             button1.Enabled = true;
             //for()
@@ -147,7 +152,7 @@ namespace Enjoy2_Patcher
         {
             using (webClient = new WebClient())
             //{
-                //webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
+                webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
                 webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(webClient_DownloadProgressChanged);
                 try
                 {
@@ -169,6 +174,13 @@ namespace Enjoy2_Patcher
                 }
             //}
         }
+        // The event that will trigger when the WebClient is completed
+        private void Completed(object sender, AsyncCompletedEventArgs e)
+        {
+            progressBar1.Value++;
+            downloaded = true;
+        }
+
 
         // The event that will fire whenever the progress of the WebClient is changed
         private void webClient_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
