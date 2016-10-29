@@ -32,14 +32,19 @@ namespace Enjoy2_Launcher
             {
                 //Открытие файла
                 FileStream fsrd = File.OpenRead(files[i]);
+                //Получение информации о файле
+                FileInfo file_inform = new System.IO.FileInfo(files[i]);
                 //Запись полного пути в структуру
                 file_source[i].filepath =files[i];
                 //Запись имени файла в структуру
                 file_source[i].filename =files[i].Replace(AppDomain.CurrentDomain.BaseDirectory,"");
                 //Запись контрольной суммы файла в структуру
                 file_source[i].crc32 = CRCTools.CalculateCRC(fsrd);
+                //Запись размера файла
+                file_source[i].size = file_inform.Length;
                 //Вывод на экран в listBox
-                listBox1.Items.Add(file_source[i].filename + " " + Convert.ToString(file_source[i].crc32,16));
+                listBox1.Items.Add("\"name\"=\"" + file_source[i].filename + "\" \"CRC32\"=\"" + Convert.ToString(file_source[i].crc32, 16) + "\" \"size\"=\"" + file_source[i].size + "\"");
+                //listBox1.Items.Add(file_source[i].filename + " " + Convert.ToString(file_source[i].crc32,16));
                 //Закрытие файла
                 fsrd.Close();
             }
@@ -47,11 +52,10 @@ namespace Enjoy2_Launcher
             StreamWriter  fswr = new StreamWriter(@"output.txt");
             for (int i = 0; i < file_source.Length; i++)
             {
-                fswr.WriteLine(file_source[i].filename+ ":"+Convert.ToString(file_source[i].crc32,16));
+                fswr.WriteLine("\"name\"=\"" + file_source[i].filename + "\" \"CRC32\"=\"" + Convert.ToString(file_source[i].crc32,16) + "\" \"size\"=\"" + file_source[i].size + "\"");
             }
             fswr.Close();
             //File.WriteAllText("C:\\output.txt", Array.ConvertAll(File.ReadAllLines("C:\\input.txt"), Convert.ToInt32).Sum().ToString());
-
         }
     }
 }

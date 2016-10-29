@@ -14,6 +14,7 @@ namespace Enjoy2_Launcher
             public string filename;
             public uint crc32;
             public long size;
+            public bool check;
         };
         /*
         static void Main(string[] args)

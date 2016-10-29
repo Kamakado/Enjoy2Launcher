@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enjoy2 Launcher", "Enjoy2 Launcher\Enjoy2 Launcher.csproj", "{3970D711-1F8F-4F36-A1BE-17805C5585D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enjoy2 Patchlist creater", "Enjoy2 Launcher\Enjoy2 Patchlist creater.csproj", "{3970D711-1F8F-4F36-A1BE-17805C5585D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enjoy2 Patcher", "Enjoy2 Patcher\Enjoy2 Patcher.csproj", "{3B46E7C0-9291-4FF1-BC8A-A123F5B7EB3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{3970D711-1F8F-4F36-A1BE-17805C5585D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3970D711-1F8F-4F36-A1BE-17805C5585D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3970D711-1F8F-4F36-A1BE-17805C5585D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B46E7C0-9291-4FF1-BC8A-A123F5B7EB3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B46E7C0-9291-4FF1-BC8A-A123F5B7EB3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B46E7C0-9291-4FF1-BC8A-A123F5B7EB3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B46E7C0-9291-4FF1-BC8A-A123F5B7EB3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
